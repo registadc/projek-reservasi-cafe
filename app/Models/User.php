@@ -22,7 +22,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role'
     ];
+
+    public function reservasi()
+    {
+        return $this->hasMany(Reservasi::class, 'id_user');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
