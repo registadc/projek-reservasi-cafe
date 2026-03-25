@@ -8,6 +8,8 @@ use App\Http\Controllers\UsersController;
 // AUTH
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'processLogin']);
+Route::get('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'processRegister']);
 
 // ADMIN
 Route::middleware(['auth', 'admin'])->group(function () {
