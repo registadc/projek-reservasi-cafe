@@ -57,7 +57,7 @@ https://templatemo.com/tm-607-glass-admin
                         <input name="password" type="password" id="password" class="form-input" placeholder="Enter your password" required>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" style="color: #F4DBE9;">
                         Login
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="5" y1="12" x2="19" y2="12"/>
@@ -74,7 +74,7 @@ https://templatemo.com/tm-607-glass-admin
 
         <!-- Footer -->
         <footer class="site-footer">
-            <p>Copyright © 2026 Giee Cafe. Designed by <a href="https://templatemo.com" target="_blank" rel="nofollow">TemplateMo</a></p>
+            <p>Copyright © 2026 Giee Cafe.</p>
         </footer>
     </div>
 

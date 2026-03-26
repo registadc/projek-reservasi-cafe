@@ -255,20 +255,21 @@ a {
 .logo {
     width: 45px;
     height: 45px;
-    background: linear-gradient(135deg, var(--emerald), var(--gold));
+   background: linear-gradient(135deg, #ff76c4, #f8e8f1);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     font-size: 20px;
-    box-shadow: 0 8px 32px rgba(5, 150, 105, 0.3);
+    color: white;
+    box-shadow: 0 8px 32px rgba(239, 106, 190, 0.3);
 }
 
 .logo-text {
     font-size: 22px;
     font-weight: 600;
-    background: linear-gradient(135deg, var(--emerald-light), var(--gold));
+    background: linear-gradient(135deg, #ff76c4, #f8e8f1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1508,8 +1509,8 @@ a {
 
 .form-input:focus {
     outline: none;
-    border-color: var(--emerald-light);
-    box-shadow: 0 0 20px rgba(52, 211, 153, 0.2);
+    border-color: rgb(255, 124, 222);
+    box-shadow: 0 0 20px rgba(255, 82, 217, 0.2);
 }
 
 .form-row {
@@ -1562,14 +1563,12 @@ a {
 
 .btn-primary {
     width: 100%;
-    background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
+    background: linear-gradient(135deg, #ff76c4, #f8e8f1);
     color: white;
-    box-shadow: 0 8px 24px rgba(5, 150, 105, 0.3);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(5, 150, 105, 0.4);
 }
 
 .btn-secondary {
@@ -1640,7 +1639,7 @@ a {
 }
 
 .login-footer a {
-    color: var(--emerald-light);
+    color: rgb(255, 102, 232);
     text-decoration: none;
 }
 
