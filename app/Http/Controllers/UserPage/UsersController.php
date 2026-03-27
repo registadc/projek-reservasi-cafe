@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\UserPage;
+
+use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
 {

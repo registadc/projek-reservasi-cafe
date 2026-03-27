@@ -21,25 +21,25 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{ route('admin.reservasi.index') }}" class="nav-link">
                                 <i class="fa-solid fa-calendar-check nav-icon"></i>
                                 Reservasi
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{ route('admin.menu.index') }}" class="nav-link">
                                 <i class="fa-solid fa-utensils nav-icon"></i>
                                 Menu
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{ route('admin.meja.index') }}" class="nav-link">
                                 <i class="fa-solid fa-chair nav-icon"></i>
                                 Meja
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{ route('admin.users.index') }}" class="nav-link">
                                 <i class="fa-solid fa-users nav-icon"></i>
                                 Users
                             </a>
