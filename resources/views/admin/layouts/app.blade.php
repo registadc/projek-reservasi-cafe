@@ -36,5 +36,7 @@
     </footer>
 
     <script src="{{ asset('template/templatemo-glass-admin-script.js') }}"></script>
+
+    @stack('scripts')
 </body>
 </html>

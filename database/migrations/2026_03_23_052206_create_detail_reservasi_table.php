@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('id_reservasi')->unsigned();
             $table->bigInteger('id_menu')->unsigned();
-            $table->integer('jumlah');
             $table->decimal('subtotal');
             $table->timestamps();
 

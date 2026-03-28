@@ -31,19 +31,21 @@
                     <td>Rp {{ number_format($item->harga) }}</td>
 
                     <td>
-                        <img src="{{ asset('storage/'.$item->gambar) }}" width="50">
+                         <img src="{{ asset('storage/'.$item->gambar) }}" 
+                            width="60" 
+                            style="border-radius:8px;">
                     </td>
 
                     <td>
-                        <a href="" class="table-btn detail">
+                        <a href="{{ route('admin.menu.show', $item->id) }}" class="table-btn detail">
                             Detail
                         </a>
                         <a href="" class="table-btn edit">Edit</a>
 
-                        <button 
-                                class="table-btn delete">
-                            Hapus
-                        </button>
+                        <button onclick="deleteAction('{{ route('admin.menu.destroy', $item->id) }}')"
+                            class="table-btn delete">
+                        Hapus
+                    </button>
                     </td>
                 </tr>
                 @empty
@@ -56,7 +58,7 @@
     </div>
 </div>
 
-<form action="" method="POST" id="delete-action">
+<form action="{{ route('admin.menu.destroy', 0) }}" method="post" id="delete-action" class="d-inline">
     @csrf
     @method('DELETE')
 </form>

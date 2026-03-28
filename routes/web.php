@@ -28,6 +28,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     //reservasi
     Route::get('/reservasi', [ReservasiController::class, 'index']) // -> index yg di sini itu harus sesuai sama public function yg di controllernya
         ->name('admin.reservasi.index'); //trus ini itu tujuan halamannya mau kemana
+    Route::get('/reservasi/{id}', [ReservasiController::class, 'show'])
+    ->name('admin.reservasi.show');
     
     //menu
     Route::resource('menu', MenuController::class)->names('admin.menu');

@@ -101,6 +101,84 @@
     background: var(--glass-border);
 }
 
+.status-badge.pending {
+    background: orange;
+    color: white;
+}
+
+.status-badge.completed {
+    background: green;
+    color: white;
+}
+
+.status-badge.cancelled {
+    background: red;
+    color: white;
+}
+
+.table-btn.detail {
+    background: #6c757d;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+/* grid info */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+/* teks */
+.info-grid p {
+    margin: 0;
+    font-size: 12px;
+    color: #888;
+}
+
+.info-grid span {
+    font-weight: 600;
+}
+
+/* gambar bukti */
+.bukti-img {
+    width: 200px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.bukti-img:hover {
+    transform: scale(1.05);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.1);
+    outline: none;
+    font-size: 14px;
+}
+
+/* focus */
+.form-input:focus {
+    border-color: #6a11cb;
+}
+
 /* wrapper */
 .table-wrapper {
     overflow-x: auto;
@@ -140,11 +218,12 @@
 
 /* action button (style template) */
 .table-btn {
-    padding: 5px 10px;
+    padding: 6px 12px;
     border-radius: 6px;
     font-size: 12px;
     text-decoration: none;
     margin-right: 5px;
+    margin-left: 10px;
 }
 
 /* edit */
@@ -157,6 +236,40 @@
 .table-btn.delete {
     background: #ff4b5c;
     color: white;
+}
+
+.detail-container {
+    display: grid;
+    gap: 15px;
+}
+
+.detail-item {
+    display: grid;
+    grid-template-columns: 180px 1fr; /* label | isi */
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+
+}
+
+.label {
+    font-size: 13px;
+    color: #888;
+}
+
+.value {
+    font-weight: 500;
+}
+
+/* gambar */
+.detail-img {
+    width: 120px;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.detail-img:hover {
+    transform: scale(1.05);
 }
 
 /* ============================================
@@ -749,7 +862,7 @@ a {
 }
 
 .card-btn {
-    padding: 8px 16px;
+    padding: 6px 12px;
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: 8px;
