@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\AdminDashboard;
 
+use App\Models\Menu;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,8 @@ class MenuController extends Controller
 {
     public function index()
     {
-        return view('admin.menu.index');
+        $menu = Menu::all(); 
+        return view('admin.menu.index', compact('menu'));
     }
 
     public function store()
@@ -30,6 +32,11 @@ class MenuController extends Controller
     public function update()
     {
 
+    }
+
+    public function show(string $id)
+    {
+        //
     }
 
     public function destroy()

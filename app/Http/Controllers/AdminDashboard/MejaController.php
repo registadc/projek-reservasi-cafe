@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\AdminDashboard;
-
+use App\Models\Meja;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,8 @@ class MejaController extends Controller
      */
     public function index()
     {
-        //
+        $meja = Meja::all(); 
+        return view('admin.meja.index', compact('meja'));
     }
 
     /**

@@ -1,1 +1,7 @@
-<h1>reserv admin</h1>
+@extends('admin.layouts.app')
+
+@section('title','dashboard')
+
+@section('content')
+    
+@endsection

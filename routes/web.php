@@ -30,36 +30,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
         ->name('admin.reservasi.index'); //trus ini itu tujuan halamannya mau kemana
     
     //menu
-    Route::get('/menu', [MenuController::class, 'index']) 
-        ->name('admin.menu.index'); 
-    Route::get('/menu/create', [MenuController::class, 'create']) 
-        ->name('admin.menu.create'); 
-    Route::post('/menu', [MenuController::class, 'store']) 
-        ->name('admin.menu.store'); 
-    Route::get('/menu/{id}/edit', [MenuController::class, 'edit']) 
-        ->name('admin.menu.edit'); 
-    Route::put('/menu/{id}', [MenuController::class, 'update']) 
-        ->name('admin.menu.update'); 
-    Route::get('/menu/{id}', [MenuController::class, 'show']) 
-        ->name('admin.menu.show');
-    Route::delete('/menu/{id}', [MenuController::class, 'destroy'])
-        ->name('admin.menu.destroy');
+    Route::resource('menu', MenuController::class)->names('admin.menu');
 
     //meja
-    Route::get('/meja', [MejaController::class, 'index']) 
-        ->name('admin.meja.index'); 
-    Route::get('/meja/create', [MejaController::class, 'create']) 
-        ->name('admin.meja.create'); 
-    Route::post('/meja', [MejaController::class, 'store']) 
-        ->name('admin.meja.store'); 
-    Route::get('/meja/{id}/edit', [MejaController::class, 'edit']) 
-        ->name('admin.meja.edit'); 
-    Route::put('/meja/{id}', [MejaController::class, 'update']) 
-        ->name('admin.meja.update'); 
-    Route::get('/meja/{id}', [MejaController::class, 'show']) 
-        ->name('admin.meja.show');
-    Route::delete('/meja/{id}', [MejaController::class, 'destroy'])
-        ->name('admin.meja.destroy');
+    Route::resource('meja', MejaController::class)->names('admin.meja');
     
     //users
     Route::get('/users', [UsersAdminController::class, 'index']) 

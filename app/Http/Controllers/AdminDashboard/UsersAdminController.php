@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\AdminDashboard;
 
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -12,28 +13,20 @@ class UsersAdminController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::all(); 
+        return view('admin.user.index', compact('user'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    
 
     /**
      * Display the specified resource.
      */
+
+    public function show(string $id)
+    {
+        //
+    }
 
     /**
      * Remove the specified resource from storage.

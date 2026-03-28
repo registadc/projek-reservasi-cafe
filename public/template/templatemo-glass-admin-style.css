@@ -101,6 +101,64 @@
     background: var(--glass-border);
 }
 
+/* wrapper */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+/* table */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+/* header */
+.data-table thead th {
+    text-align: left;
+    padding: 12px;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* body */
+.data-table tbody td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* hover */
+.data-table tbody tr:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+/* image */
+.data-table img {
+    border-radius: 8px;
+}
+
+/* action button (style template) */
+.table-btn {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+/* edit */
+.table-btn.edit {
+    background: #4facfe;
+    color: white;
+}
+
+/* delete */
+.table-btn.delete {
+    background: #ff4b5c;
+    color: white;
+}
+
 /* ============================================
    RESET & BASE STYLES
 ============================================ */
