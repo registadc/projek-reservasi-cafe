@@ -40,10 +40,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     //users
     Route::get('/users', [UsersAdminController::class, 'index']) 
         ->name('admin.users.index'); 
-    Route::get('/users/create', [UsersAdminController::class, 'create']) 
-        ->name('admin.users.create'); 
-    Route::post('/users', [UsersAdminController::class, 'store']) 
-        ->name('admin.users.store'); 
+    Route::get('/users/{id}', [UsersAdminController::class, 'show'])
+    ->name('admin.users.show');
     Route::delete('/users/{id}', [UsersAdminController::class, 'destroy'])
         ->name('admin.users.destroy');
 });

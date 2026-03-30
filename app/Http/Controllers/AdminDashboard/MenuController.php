@@ -5,6 +5,8 @@ namespace App\Http\Controllers\AdminDashboard;
 use App\Models\Menu;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class MenuController extends Controller
 {
@@ -43,14 +45,38 @@ class MenuController extends Controller
         return view('admin.menu.create');
     }
 
-    public function edit()
+    public function edit($id)
     {
-
+        $menu = Menu::findOrFail($id);
+        return view('admin.menu.edit', compact('menu'));
     }
     
-    public function update()
+    public function update(Request $request, $id)
     {
+        $request->validate([
+            'nama_menu' => 'required',
+            'deskripsi' => 'required',
+            'harga' => 'required|numeric',
+        ]);
 
+        $menu = Menu::findOrFail($id);
+
+        if ($request->hasFile('gambar')) {
+            // hapus gambar lama
+            Storage::disk('public')->delete($menu->gambar);
+
+            // upload gambar baru
+            $gambar = $request->file('gambar')->store('menu', 'public');
+            $menu->gambar = $gambar;
+        }
+
+        $menu->nama_menu = $request->nama_menu;
+        $menu->deskripsi = $request->deskripsi;
+        $menu->harga = $request->harga;
+        $menu->save();
+
+        return redirect()->route('admin.menu.index')
+            ->with('success', 'Menu berhasil diperbarui');
     }
 
     public function show(string $id)

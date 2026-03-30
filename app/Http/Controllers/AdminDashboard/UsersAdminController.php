@@ -14,8 +14,9 @@ class UsersAdminController extends Controller
     public function index()
     {
         $user = User::all(); 
-        return view('admin.user.index', compact('user'));
+        return view('admin.users.index', compact('user'));
     }
+
 
     
 
@@ -25,7 +26,8 @@ class UsersAdminController extends Controller
 
     public function show(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('admin.user.show', compact('user'));
     }
 
     /**
@@ -33,6 +35,10 @@ class UsersAdminController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('admin.users.index')
+            ->with('success', 'User berhasil dihapus');
     }
 }

@@ -40,7 +40,7 @@
                         <a href="{{ route('admin.menu.show', $item->id) }}" class="table-btn detail">
                             Detail
                         </a>
-                        <a href="" class="table-btn edit">Edit</a>
+                        <a href="{{ route('admin.menu.edit', $item->id) }}" class="table-btn edit">Edit</a>
 
                         <button onclick="deleteAction('{{ route('admin.menu.destroy', $item->id) }}')"
                             class="table-btn delete">

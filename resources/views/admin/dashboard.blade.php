@@ -9,7 +9,7 @@
                     <div class="stat-card-inner">
                         <div class="stat-info">
                             <h3>Total Users</h3>
-                            <div class="stat-value">0</div>
+                            <div class="stat-value">{{ $totalUsers }}</div>
                             <span class="stat-change positive">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
                                 +12.5%
@@ -25,7 +25,7 @@
                     <div class="stat-card-inner">
                         <div class="stat-info">
                             <h3>Total Reservasi</h3>
-                            <div class="stat-value">0</div>
+                            <div class="stat-value">{{ $totalReservasi }}</div>
                             <span class="stat-change positive">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
                                 +8.2%
@@ -41,7 +41,7 @@
                     <div class="stat-card-inner">
                         <div class="stat-info">
                             <h3>Total Menu</h3>
-                            <div class="stat-value">0</div>
+                            <div class="stat-value">{{ $totalMenu }}</div>
                             <span class="stat-change negative">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/></svg>
                                 -3.1%
@@ -67,34 +67,38 @@
                         </div>
                         <div class="card-actions">
                             <button class="card-btn active">Monthly</button>
-                            <button class="card-btn">Weekly</button>
-                            <button class="card-btn">Daily</button>
                         </div>
                     </div>
                     <div class="chart-wrapper">
                         <div class="chart-container">
                             <div class="chart-y-axis">
-                                <span class="y-value">$100K</span>
-                                <span class="y-value">$80K</span>
-                                <span class="y-value">$60K</span>
-                                <span class="y-value">$40K</span>
-                                <span class="y-value">$20K</span>
-                                <span class="y-value">$0</span>
+                                @php
+                                    $step = ceil($maxReservasi / 5);
+                                @endphp
+
+                                @for ($i = 5; $i >= 0; $i--)
+                                    <span class="y-value">{{ $step * $i }}</span>
+                                @endfor
                             </div>
+
                             <div class="chart-placeholder">
-                                <div class="chart-bar-group"><div class="chart-bar bar-emerald" style="height: 120px;"></div><span class="chart-label">Jan</span></div>
-                                <div class="chart-bar-group"><div class="chart-bar bar-gold" style="height: 160px;"></div><span class="chart-label">Feb</span></div>
-                                <div class="chart-bar-group"><div class="chart-bar bar-coral" style="height: 90px;"></div><span class="chart-label">Mar</span></div>
-                                <div class="chart-bar-group"><div class="chart-bar bar-teal" style="height: 140px;"></div><span class="chart-label">Apr</span></div>
-                                <div class="chart-bar-group"><div class="chart-bar bar-amber" style="height: 180px;"></div><span class="chart-label">May</span></div>
-                                <div class="chart-bar-group"><div class="chart-bar bar-emerald" style="height: 130px;"></div><span class="chart-label">Jun</span></div>
-                                <div class="chart-bar-group"><div class="chart-bar bar-gold" style="height: 170px;"></div><span class="chart-label">Jul</span></div>
-                                <div class="chart-bar-group"><div class="chart-bar bar-coral" style="height: 150px;"></div><span class="chart-label">Aug</span></div>
-                                <div class="chart-bar-group"><div class="chart-bar bar-teal" style="height: 190px;"></div><span class="chart-label">Sep</span></div>
-                                <div class="chart-bar-group"><div class="chart-bar bar-amber" style="height: 140px;"></div><span class="chart-label">Oct</span></div>
-                                <div class="chart-bar-group"><div class="chart-bar bar-emerald" style="height: 175px;"></div><span class="chart-label">Nov</span></div>
-                                <div class="chart-bar-group"><div class="chart-bar bar-gold" style="height: 200px;"></div><span class="chart-label">Dec</span></div>
+                                @php
+                                    $months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+                                @endphp
+
+                                @foreach($months as $index => $month)
+                                    @php
+                                        $value = $reservasiChart[$index+1] ?? 0;
+                                        $height = $maxReservasi > 0 ? ($value / $maxReservasi) * 200 : 0;
+                                    @endphp
+
+                                    <div class="chart-bar-group">
+                                        <div class="chart-bar bar-emerald" style="height: {{ $height }}px;"></div>
+                                        <span class="chart-label">{{ $month }}</span>
+                                    </div>
+                                @endforeach
                             </div>
+                           
                         </div>
                     </div>
                 </div>
