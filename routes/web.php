@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Auth;
 // AUTH
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'processLogin']);
-Route::get('/register', [AuthController::class, 'register']);
-Route::post('/register', [AuthController::class, 'processRegister']);
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'processRegister'])->name('register.process');
 
 
 // prefix itu menambahkan "/admin" didepan semua route, jdi kia ga perlu nulis /admin misalnya di depannya /dashboard -> Route::get('/dashboard',

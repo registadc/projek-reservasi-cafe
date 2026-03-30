@@ -27,7 +27,7 @@ class UsersAdminController extends Controller
     public function show(string $id)
     {
         $user = User::findOrFail($id);
-        return view('admin.user.show', compact('user'));
+        return view('admin.users.show', compact('user'));
     }
 
     /**

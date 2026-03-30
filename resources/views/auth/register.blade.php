@@ -44,34 +44,31 @@ https://templatemo.com/tm-607-glass-admin
                     <h1 class="login-title">Register</h1>
                 </div>
 
-                <form action="/register" method="post">
+                <form action="{{ route('register.process') }}" method="post">
                     @csrf 
+
                     <div class="form-group">
-                        <label class="form-label" for="fullname" name="name">Full Name</label>
-                        <input type="text" id="fullname" class="form-input" placeholder="Enter your full name" required>
+                        <label class="form-label">Full Name</label>
+                        <input type="text" name="name" class="form-input" placeholder="Enter your full name" required>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="email" name="email">Email Address</label>
-                        <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+                        <label class="form-label">Email Address</label>
+                        <input type="email" name="email" class="form-input" placeholder="Enter your email" required>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="password" name="password">Password</label>
-                        <input type="password" id="password" class="form-input" placeholder="Create a password" required>
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" class="form-input" placeholder="Create a password" required>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="confirm-password" name="password_confirmation" >Confirm Password</label>
-                        <input type="password" id="confirm-password" class="form-input" placeholder="Confirm your password" required>
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" name="password_confirmation" class="form-input" placeholder="Confirm your password" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary">
                         Register
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="5" y1="12" x2="19" y2="12"/>
-                            <polyline points="12 5 19 12 12 19"/>
-                        </svg>
                     </button>
                 </form>
 
