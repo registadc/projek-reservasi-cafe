@@ -17,6 +17,7 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'processRegister'])->name('register.process');
 
 
+
 // prefix itu menambahkan "/admin" didepan semua route, jdi kia ga perlu nulis /admin misalnya di depannya /dashboard -> Route::get('/dashboard',
 // ================= ADMIN =================
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () { 
@@ -54,6 +55,8 @@ Route::middleware(['auth', 'user'])->prefix('user')->group(function () {
         ->name('user.dashboard');
 
 });
+
+
 
 
 // LOGOUT
