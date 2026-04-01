@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar-user">
     <div class="nav-container">
 
         <div class="judul">giee</div>

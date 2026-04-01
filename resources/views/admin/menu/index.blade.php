@@ -19,6 +19,7 @@
                     <th>Nama Menu</th>
                     <th>Harga</th>
                     <th>Gambar</th>
+                    <th>Kategori</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -35,6 +36,8 @@
                             width="60" 
                             style="border-radius:8px;">
                     </td>
+
+                    <td>{{ $item->kategori }}</td>
 
                     <td>
                         <a href="{{ route('admin.menu.show', $item->id) }}" class="table-btn detail">

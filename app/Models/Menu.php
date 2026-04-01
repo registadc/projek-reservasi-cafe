@@ -9,7 +9,7 @@ class Menu extends Model
     protected $table = 'menu';
 
     protected $fillable = [
-        'nama_menu','deskripsi','harga','gambar'
+        'nama_menu','deskripsi','harga','gambar','kategori'
     ];
 
     public function reservasi()

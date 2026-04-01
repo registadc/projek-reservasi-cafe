@@ -23,6 +23,7 @@ class MenuController extends Controller
         'deskripsi' => 'required',
         'harga' => 'required|numeric',
         'gambar' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+        'kategori' => 'required|in:drink,bread'
     ]);
 
     // upload gambar
@@ -34,6 +35,7 @@ class MenuController extends Controller
         'deskripsi' => $request->deskripsi,
         'harga' => $request->harga,
         'gambar' => $gambar,
+        'kategori' => $request->kategori
     ]);
 
     return redirect()->route('admin.menu.index')
@@ -57,6 +59,7 @@ class MenuController extends Controller
             'nama_menu' => 'required',
             'deskripsi' => 'required',
             'harga' => 'required|numeric',
+            'kategori' => 'required|in:drink,bread',
         ]);
 
         $menu = Menu::findOrFail($id);
@@ -73,6 +76,7 @@ class MenuController extends Controller
         $menu->nama_menu = $request->nama_menu;
         $menu->deskripsi = $request->deskripsi;
         $menu->harga = $request->harga;
+        $menu->kategori = $request->kategori;
         $menu->save();
 
         return redirect()->route('admin.menu.index')

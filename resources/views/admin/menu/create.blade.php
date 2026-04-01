@@ -31,6 +31,15 @@
             <input type="file" name="gambar" class="form-input" required>
         </div>
 
+        <div class="form-group">
+            <label>Kategori</label>
+            <select name="kategori" class="form-input" required>
+                <option value="">-- Pilih Kategori --</option>
+                <option value="drink">Drink</option>
+                <option value="bread">Bread</option>
+            </select>
+        </div>
+
         <div style="margin-top:15px;">
             <button type="submit" class="card-btn">Simpan</button>
 

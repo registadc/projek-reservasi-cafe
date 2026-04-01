@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('template/templatemo-glass-admin-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/user.css') }}">
 
 </head>
 
@@ -28,5 +28,11 @@
 
     @stack('scripts')
     
+    <script>
+        function toggleDropdown() {
+            const menu = document.getElementById("dropdownMenu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+    </script>
 </body>
 </html>

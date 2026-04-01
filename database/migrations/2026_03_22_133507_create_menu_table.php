@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->string('harga');
             $table->string('gambar');
+            $table->enum('kategori', ['drink', 'bread']);
             $table->timestamps();
         });
     }

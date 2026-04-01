@@ -6,7 +6,7 @@
             </div>
 
             <ul class="nav-menu">
-                <li class="nav-section">
+                <li class="nav-section-admin">
                     <span class="nav-section-title">Main Menu</span>
                     <ul>
                         <li class="nav-item">
@@ -48,7 +48,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-section">
+                <li class="nav-section-admin">
                     <span class="nav-section-title">Account</span>
                     <ul>
                         <li class="nav-item">

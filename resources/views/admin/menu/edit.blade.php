@@ -51,6 +51,19 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <label>Kategori</label>
+            <select name="kategori" class="form-input" required>
+                <option value="">-- Pilih Kategori --</option>
+                <option value="drink" {{ $menu->kategori == 'drink' ? 'selected' : '' }}>
+                    Drink
+                </option>
+                <option value="bread" {{ $menu->kategori == 'bread' ? 'selected' : '' }}>
+                    Bread
+                </option>
+            </select>
+        </div>
+
         <div style="margin-top:15px;">
             <button type="submit" class="card-btn">Simpan</button>
 
