@@ -112,8 +112,10 @@ body {
    HERO
 ========================= */
 .hero {
-    height: 300px;
-    background: url('/images/bg hero.png') center/cover no-repeat;
+    height: 400px;
+    background: 
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url('/images/bg-hero.png') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -135,7 +137,7 @@ body {
 }
 
 .menu-section.bread {
-    background: #d8c0c8;
+    background: #f4e4e9;
 }
 
 .menu-section h2 {
@@ -182,25 +184,22 @@ body {
     flex: 1;
 }
 
-/* nama + harga */
 .menu-title {
     display: flex;
     align-items: center;
     font-weight: bold;
-    font-size: 15px;
 }
 
-/* garis titik */
-.menu-title::after {
-    content: "";
-    flex: 1;
-    border-bottom: 1px dashed #999;
-    margin: 0 10px;
+/* nama */
+.menu-name {
+    white-space: nowrap;
 }
+
+
 
 /* harga */
-.menu-title span {
-    font-weight: bold;
+.menu-price {
+    white-space: nowrap;
 }
 
 /* deskripsi */

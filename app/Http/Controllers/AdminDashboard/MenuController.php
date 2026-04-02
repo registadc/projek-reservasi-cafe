@@ -22,7 +22,7 @@ class MenuController extends Controller
         'nama_menu' => 'required',
         'deskripsi' => 'required',
         'harga' => 'required|numeric',
-        'gambar' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+        'gambar' => 'required|image|mimes:jpg,jpeg,png,jfif|max:2048',
         'kategori' => 'required|in:drink,bread'
     ]);
 

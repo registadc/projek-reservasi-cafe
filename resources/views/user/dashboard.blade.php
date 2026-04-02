@@ -20,8 +20,8 @@
             <img src="{{ asset('storage/' . $menu->gambar) }}" alt="">
             <div class="menu-info">
                 <div class="menu-title">
-                    {{ strtoupper($menu->nama_menu) }}
-                    <span>Rp {{ number_format($menu->harga, 0, ',', '.') }}</span>
+                    <span class="menu-name">{{($menu->nama_menu) }} ------------ </span>
+                    <span class="menu-price"> Rp {{ number_format($menu->harga, 0, ',', '.') }}</span>
                 </div>
                 <div class="menu-desc">{{ $menu->deskripsi }}</div>
             </div>
@@ -41,8 +41,8 @@
             <img src="{{ asset('storage/' . $menu->gambar) }}" alt="">
             <div class="menu-info">
                 <div class="menu-title">
-                    {{ strtoupper($menu->nama_menu) }}
-                    <span>Rp {{ number_format($menu->harga, 0, ',', '.') }}</span>
+                    <span class="menu-name">{{($menu->nama_menu) }} ------------ </span>
+                    <span class="menu-price"> Rp {{ number_format($menu->harga, 0, ',', '.') }}</span>
                 </div>
                 <div class="menu-desc">{{ $menu->deskripsi }}</div>
             </div>
