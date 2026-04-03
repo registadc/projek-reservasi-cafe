@@ -54,6 +54,12 @@ Route::middleware(['auth', 'user'])->prefix('user')->group(function () {
     Route::get('/dashboard', [UsersController::class, 'userMenu'])
         ->name('user.dashboard');
 
+    Route::delete('/user/{id}', [UsersController::class, 'destroy'])
+        ->name('user.destroy');
+
+    Route::get('/profile', [UsersController::class, 'profile'])
+        ->name('user.profile');
+
 });
 
 

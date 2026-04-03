@@ -28,6 +28,8 @@
 
     @stack('scripts')
     
+    @include('user.layouts.footer')
+
     <script>
         function toggleDropdown() {
             const menu = document.getElementById("dropdownMenu");
