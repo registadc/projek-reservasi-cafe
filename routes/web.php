@@ -39,12 +39,13 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::resource('meja', MejaController::class)->names('admin.meja');
     
     //users
-    Route::get('/users', [UsersAdminController::class, 'index']) 
-        ->name('admin.users.index'); 
-    Route::get('/users/{id}', [UsersAdminController::class, 'show'])
-    ->name('admin.users.show');
-    Route::delete('/users/{id}', [UsersAdminController::class, 'destroy'])
-        ->name('admin.users.destroy');
+    // Route::get('/users', [UsersAdminController::class, 'index']) 
+    //     ->name('admin.users.index'); 
+    // Route::get('/users/{id}', [UsersAdminController::class, 'show'])
+    // ->name('admin.users.show');
+    // Route::delete('/users/{id}', [UsersAdminController::class, 'destroy'])
+    //     ->name('admin.users.destroy');
+    Route::resource('users', UsersAdminController::class)->names('admin.users');
 });
 
 

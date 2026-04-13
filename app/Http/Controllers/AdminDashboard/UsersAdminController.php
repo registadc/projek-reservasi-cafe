@@ -17,8 +17,31 @@ class UsersAdminController extends Controller
         return view('admin.users.index', compact('user'));
     }
 
-
+    public function create()
+    {
+        return view('admin.users.create');
+    }
     
+    public function store(Request $request)
+    {
+        // Validasi input
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|confirmed',
+        ]);
+
+        // Simpan user baru
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'role' => 'user', // Set role default sebagai user
+        ]);
+
+        return redirect()->route('admin.users.index')
+            ->with('success', 'User berhasil ditambahkan');
+    }
 
     /**
      * Display the specified resource.

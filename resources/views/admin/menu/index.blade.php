@@ -48,7 +48,7 @@
                         <button onclick="deleteAction('{{ route('admin.menu.destroy', $item->id) }}')"
                             class="table-btn delete">
                         Hapus
-                    </button>
+                        </button>
                     </td>
                 </tr>
                 @empty

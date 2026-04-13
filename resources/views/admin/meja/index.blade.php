@@ -1,13 +1,13 @@
 @extends('admin.layouts.app')
 
-@section('title','Index Menu')
+@section('title','Index Meja')
 
 @section('content')
 <div class="glass-card table-card">
     <div class="card-header">
         <h2 class="card-title">Daftar Meja</h2>
-         <a href="{{ route('admin.menu.create') }}" class="card-btn">
-            + Tambah Menu
+         <a href="{{ route('admin.meja.create') }}" class="card-btn">
+            + Tambah Meja
         </a>
     </div>
 
@@ -15,7 +15,7 @@
         <table class="data-table">
             <thead>
                 <tr>
-                    <th>No</th>
+                    <th>No Meja</th>
                     <th>Kapasitas</th>
                     <th>Status</th>
                     <th>Aksi</th>
@@ -26,19 +26,19 @@
                 @forelse ($meja as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->kapasitas }}</td>
+                    <td>{{ $item->kapasitas }} orang</td>
                     <td>{{ $item->status }}</td>
 
                     <td>
-                        <a href="" class="table-btn detail">
+                        <a href="{{ route('admin.meja.show', $item->id) }}" class="table-btn detail">
                             Detail
                         </a>
 
-                        <a href="" class="table-btn edit">Edit</a>
+                        <a href="{{ route('admin.meja.edit', $item->id) }}" class="table-btn edit">Edit</a>
 
-                        <button 
-                                class="table-btn delete">
-                            Hapus
+                         <button onclick="deleteAction('{{ route('admin.meja.destroy', $item->id) }}')"
+                            class="table-btn delete">
+                         Hapus
                         </button>
                     </td>
                 </tr>
@@ -52,7 +52,7 @@
     </div>
 </div>
 
-<form action="" method="POST" id="delete-action">
+<form action="{{ route('admin.meja.destroy', 0) }}" method="POST" id="delete-action">
     @csrf
     @method('DELETE')
 </form>

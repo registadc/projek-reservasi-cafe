@@ -6,6 +6,9 @@
 <div class="glass-card table-card">
     <div class="card-header">
         <h2 class="card-title">Daftar Users</h2>
+        <a href="{{ route('admin.users.create') }}" class="card-btn">
+            + Tambah Users
+        </a>
     </div>
 
     <div class="table-wrapper">
