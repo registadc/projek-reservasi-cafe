@@ -17,11 +17,12 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>User</th>
+                    <th>Nama</th>
                     <th>Tanggal</th>
                     <th>Jam</th>
                     <th>Orang</th>
                     <th>Total</th>
+                    <th>No Meja</th>
                     <th>Status</th>
                     <th style="text-align:center;">Aksi</th>
                 </tr>
@@ -42,14 +43,32 @@
 
                     <td>Rp {{ number_format($r->total_harga) }}</td>
 
+                    <td>{{ $r->meja->nomor_meja ?? '-' }}</td>
+
                     <td>
-                        <span class="status-badge 
-                            {{ $r->status == 'pending' ? 'pending' : '' }}
-                            {{ $r->status == 'confirmed' ? 'completed' : '' }}
-                            {{ $r->status == 'canceled' ? 'cancelled' : '' }}">
-                            
-                            {{ ucfirst($r->status) }}
-                        </span>
+
+                        <form action="{{ route('admin.reservasi.status', $r->id) }}" method="POST">
+                        @csrf
+                        @method('PATCH')
+
+                        <select name="status" onchange="this.form.submit()" class="status-select">
+
+                            <option value="pending" {{ $r->status == 'pending' ? 'selected' : '' }}>
+                                Pending
+                            </option>
+
+                            <option value="approved" {{ $r->status == 'approved' ? 'selected' : '' }}>
+                                Approved
+                            </option>
+
+                            <option value="rejected" {{ $r->status == 'rejected' ? 'selected' : '' }}>
+                                Rejected
+                            </option>
+
+                        </select>
+
+                        </form>
+
                     </td>
 
                     <td style="text-align:center;">

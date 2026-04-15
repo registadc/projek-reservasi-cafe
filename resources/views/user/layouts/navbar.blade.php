@@ -5,12 +5,12 @@
 
         <div class="nav-menu">
             <a href="{{ route('user.dashboard') }}">Home</a>
-            <a href="#">Reservasi</a>
+            <a href="{{ route('reservasi.form') }}">Reservasi</a>
         </div>
 
         <div class="nav-icons">
 
-            <a href="">
+            <a href="{{ route('user.riwayat') }}" title="Riwayat Reservasi">
                 <i class="fa-solid fa-book"></i>
             </a>
 

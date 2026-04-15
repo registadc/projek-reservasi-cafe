@@ -31,6 +31,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
         ->name('admin.reservasi.index'); //trus ini itu tujuan halamannya mau kemana
     Route::get('/reservasi/{id}', [ReservasiController::class, 'show'])
     ->name('admin.reservasi.show');
+    Route::patch('/admin/reservasi/{id}/status', 
+    [ReservasiController::class, 'updateStatus']
+    )->name('admin.reservasi.status');
     
     //menu
     Route::resource('menu', MenuController::class)->names('admin.menu');
@@ -61,6 +64,21 @@ Route::middleware(['auth', 'user'])->prefix('user')->group(function () {
     Route::get('/profile', [UsersController::class, 'profile'])
         ->name('user.profile');
 
+    //reservasi
+
+Route::get('/reservasi', [UsersController::class, 'reservasiForm'])->name('reservasi.form');
+
+Route::post('/reservasi/menu', [UsersController::class, 'reservasiMenu'])->name('reservasi.menu');
+
+Route::post('/reservasi/checkout', [UsersController::class, 'reservasiCheckout'])->name('reservasi.checkout');
+
+Route::post('/reservasi/store', [UsersController::class, 'reservasiStore'])->name('reservasi.store');
+
+Route::get('/riwayat', [UsersController::class, 'riwayat'])->name('user.riwayat');
+
+Route::delete('/user/reservasi/{id}', 
+    [UsersController::class, 'destroyReservasi']
+)->name('user.reservasi.delete');
 });
 
 

@@ -12,7 +12,8 @@ class ReservasiController extends Controller
     public function index()
     {
         $reservasi = Reservasi::with(['user','meja'])->latest()->get();
-        return view('admin.reservasi.index', compact('reservasi'));
+        $meja = $reservasi->pluck('meja')->filter()->values();
+        return view('admin.reservasi.index', compact('reservasi','meja'));
     }
 
     public function show($id)
@@ -22,6 +23,41 @@ class ReservasiController extends Controller
         // ambil detail reservasi
         $detail = DetailReservasi::where('id_reservasi', $id)->get();
 
-        return view('admin.reservasi.show', compact('reservasi', 'detail'));
+        // ambil data meja yang dipesan
+        $meja = $reservasi->meja;
+
+        return view('admin.reservasi.show', compact('reservasi', 'detail','meja'));
+    }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $reservasi = Reservasi::with('meja')->findOrFail($id);
+
+        $request->validate([
+            'status' => 'required|in:pending,approved,rejected'
+        ]);
+
+        // update status reservasi
+        $reservasi->status = $request->status;
+        $reservasi->save();
+
+        // kalo reserv nya di approve maka status meja nya terisi
+        if ($request->status == 'approved') {
+            if ($reservasi->meja) {
+                $reservasi->meja->update([
+                    'status' => 'tidak tersedia'
+                ]);
+            }
+        }
+
+        if ($request->status == 'rejected') {
+            if ($reservasi->meja) {
+                $reservasi->meja->update([
+                    'status' => 'tersedia'
+                ]);
+            }
+        }
+
+        return back()->with('success', 'Status berhasil diupdate');
     }
 }

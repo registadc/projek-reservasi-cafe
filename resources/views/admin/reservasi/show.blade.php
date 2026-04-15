@@ -17,7 +17,7 @@
             </div>
 
             <div>
-                <p><strong>User</strong></p>
+                <p><strong>Nama</strong></p>
                 <span>{{ $reservasi->user->name ?? $reservasi->id_user }}</span>
             </div>
 
@@ -42,11 +42,16 @@
             </div>
 
             <div>
+                <p><strong>Nomor Meja</strong></p>
+                <span>{{ $reservasi->meja->nomor_meja }}</span>
+            </div>
+
+            <div>
                 <p><strong>Status</strong></p>
                 <span class="status-badge 
                     {{ $reservasi->status == 'pending' ? 'pending' : '' }}
-                    {{ $reservasi->status == 'confirmed' ? 'completed' : '' }}
-                    {{ $reservasi->status == 'canceled' ? 'cancelled' : '' }}">
+                    {{ $reservasi->status == 'approved' ? 'completed' : '' }}
+                    {{ $reservasi->status == 'rejected' ? 'cancelled' : '' }}">
                     {{ ucfirst($reservasi->status) }}
                 </span>
             </div>

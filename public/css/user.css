@@ -370,3 +370,402 @@ body {
     font-size: 13px;
     opacity: 0.8;
 }
+
+
+
+/* =========================
+   RESERVASI
+========================= */
+
+/* CONTAINER */
+.reservasi-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 500px;
+    margin-left: 380px;
+}
+
+/* CARD */
+.card-reservasi {
+    width: 100%;
+    max-width: 600px; 
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+/* TITLE */
+.card-reservasi h2,
+.card-reservasi h3 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* INPUT */
+.card-reservasi input,
+.card-reservasi select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* BUTTON */
+.btn-pink {
+    background: #e6c1cf;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-pink:hover {
+    background: #d9aabf;
+}
+
+/* MENU ITEM */
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.menu-info {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.qty {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.qty button {
+    background: #e6c1cf;
+    border: none;
+    width: 25px;
+    height: 25px;
+}
+
+/* BUTTON GROUP */
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* =========================
+   STEP 2 - FIX DESIGN
+========================= */
+
+/* container tengah */
+.reservasi-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+/* card utama */
+.card-reservasi {
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.card-reservasi input[type="number"],
+.card-reservasi input[type="text"],
+.card-reservasi input[type="date"],
+.card-reservasi select {
+    width: 100%;
+}
+
+/* item menu */
+.menu-item-new {
+     display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: flex-start;
+}
+
+/* ini penting banget */
+.menu-info-new {
+    flex: 1;
+    min-width: 0;
+}
+
+.menu-item-new:hover {
+    background: #f9f9f9;
+}
+
+/* checkbox biar di kiri */
+.check-menu {
+    width: auto !important;
+    margin-top: 20px;
+}
+
+/* gambar */
+.menu-item-new img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.menu-item-new * {
+    margin-left: 0;
+}
+
+
+/* nama + harga sejajar kiri kanan */
+.menu-title-new {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* nama menu */
+.menu-title-new span:first-child {
+    white-space: nowrap;       /* 🔥 biar tidak turun ke bawah */
+    overflow: hidden;
+    text-overflow: ellipsis;   /* kalau kepanjangan jadi ... */
+}
+
+/* harga */
+.menu-title-new span:last-child {
+    white-space: nowrap;
+}
+
+/* qty */
+.qty-new {
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.qty-new input {
+    width: 60px;
+}
+
+.qty-new label {
+    font-size: 13px;
+}
+
+/* total */
+.total-box {
+    margin-top: 20px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* button */
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.menu-item-new {
+    align-items: center; /* biar sejajar */
+}
+
+.menu-title-new {
+    gap: 10px;
+}   
+
+
+
+/* CARD */
+.menu-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+/* checkbox */
+.check-menu {
+    width: auto;
+}
+
+/* gambar */
+.menu-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* isi */
+.menu-content {
+    flex: 1;
+}
+
+/* header */
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+/* desc */
+.menu-content small {
+    display: block;
+    color: #777;
+    margin: 5px 0;
+}
+
+/* qty modern */
+.qty-modern {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    width: 300px;
+}
+
+.qty-modern button {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: #e6c1cf;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.qty-modern input {
+    width: 40px;
+    text-align: center;
+}
+
+/* 🔥 STICKY TOTAL */
+.total-sticky {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.checkout-box {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.checkout-menu {
+    margin-bottom: 15px;
+}
+
+.checkout-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.total-box {
+    text-align: right;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+.history-card {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    cursor: pointer;
+    background: #fafafa;
+}
+
+.history-detail {
+    display: none;
+    padding: 15px;
+    border-top: 1px solid #eee;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+/* STATUS */
+.status {
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.status.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status.approved {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status.rejected {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* BUKTI */
+.bukti-box {
+    margin-top: 10px;
+}
+
+.bukti-img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.btn-delete {
+    margin-top: 15px;
+    padding: 8px 12px;
+    border: none;
+    background: #ff4d4f;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.btn-delete:hover {
+    background: #d9363e;
+}

@@ -17,8 +17,8 @@ class DetailReservasi extends Model
         return $this->belongsTo(Reservasi::class, 'id_reservasi');
     }
 
-    public function detail_reservasi()
+    public function menu()
     {
-        return $this->hasMany(DetailReservasi::class, 'id_menu');
+        return $this->belongsTo(Menu::class, 'id_menu');
     }
 }

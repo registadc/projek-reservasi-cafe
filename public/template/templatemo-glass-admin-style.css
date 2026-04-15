@@ -2619,3 +2619,24 @@ a {
 .login-card {
     animation: fadeInUp 0.6s ease-out;
 }
+
+.status-select {
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+/* warna beda */
+.status-select option[value="pending"] {
+    color: orange;
+}
+
+.status-select option[value="approved"] {
+    color: green;
+}
+
+.status-select option[value="rejected"] {
+    color: red;
+}
