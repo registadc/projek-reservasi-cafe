@@ -34,6 +34,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::patch('/admin/reservasi/{id}/status', 
     [ReservasiController::class, 'updateStatus']
     )->name('admin.reservasi.status');
+
+    Route::delete('/admin/reservasi/{id}', [ReservasiController::class, 'destroy'])
+    ->name('admin.reservasi.destroy');
+
     
     //menu
     Route::resource('menu', MenuController::class)->names('admin.menu');
@@ -70,7 +74,9 @@ Route::get('/reservasi', [UsersController::class, 'reservasiForm'])->name('reser
 
 Route::post('/reservasi/menu', [UsersController::class, 'reservasiMenu'])->name('reservasi.menu');
 
-Route::post('/reservasi/checkout', [UsersController::class, 'reservasiCheckout'])->name('reservasi.checkout');
+Route::match(['get','post'], '/reservasi/checkout', 
+    [UsersController::class, 'reservasiCheckout']
+)->name('reservasi.checkout');
 
 Route::post('/reservasi/store', [UsersController::class, 'reservasiStore'])->name('reservasi.store');
 

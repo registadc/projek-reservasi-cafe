@@ -59,10 +59,15 @@
 
 <!-- BUTTON -->
 <div class="btn-group">
-    <a href="{{ route('reservasi.menu') }}" class="btn-pink">Kembali</a>
+
+    <!-- tombol kembali -->
+    <button type="button" class="btn-pink" onclick="goBack()">Kembali</button>
+
+    <!-- tombol submit -->
     <button type="submit" class="btn-pink" id="btnSubmit">
-    Konfirmasi
-</button>
+        Konfirmasi
+    </button>
+
 </div>
 
 </form>
@@ -106,4 +111,8 @@ document.addEventListener('DOMContentLoaded', function () {
 document.querySelector('form').addEventListener('submit', function(){
     document.getElementById('btnSubmit').disabled = true;
 });
+
+function goBack() {
+    window.history.back();
+}
 </script>

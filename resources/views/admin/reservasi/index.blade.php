@@ -71,11 +71,26 @@
 
                     </td>
 
-                    <td style="text-align:center;">
+                    <td style="text-align:center; display:flex; gap:8px; justify-content:center;">
+    
+                        <!-- Tombol Detail -->
                         <a href="{{ route('admin.reservasi.show', $r->id) }}" 
-                           class="table-btn detail">
+                        class="table-btn detail">
                             Detail
                         </a>
+
+                        <!-- Tombol Hapus -->
+                        <form action="{{ route('admin.reservasi.destroy', $r->id) }}" 
+                            method="POST" 
+                            onsubmit="return confirm('Yakin ingin menghapus reservasi ini?')">
+                            @csrf
+                            @method('DELETE')
+
+                            <button type="submit" class="table-btn delete">
+                                Hapus
+                            </button>
+                        </form>
+
                     </td>
 
                 </tr>

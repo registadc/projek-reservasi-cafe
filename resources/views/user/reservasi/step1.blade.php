@@ -21,17 +21,22 @@
     <label>Jumlah Orang</label>
     <input type="number" name="jumlah_orang" required>
 
-    <label>Pilih Meja</label>
     <select name="id_meja" required>
-        <option value="">-- pilih meja --</option>
+    <option value="">-- pilih meja --</option>
 
-        @foreach($mejas as $meja)
-            <option value="{{ $meja->id }}">
-                {{ $meja->nomor_meja }} - kapasitas {{ $meja->kapasitas }} orang
-            </option>
-        @endforeach
+    @foreach($mejas as $meja)
+        <option value="{{ $meja->id }}"
+            @if(in_array($meja->id, $mejaTerpakai)) disabled class="disabled-option" @endif>
 
-    </select>
+            {{ $meja->nomor_meja }} - kapasitas {{ $meja->kapasitas }} orang
+
+            @if(in_array($meja->id, $mejaTerpakai))
+                (Terisi)
+            @endif
+
+        </option>
+    @endforeach
+</select>
 
     <button type="submit" class="btn-pink">Selanjutnya</button>
 </form>

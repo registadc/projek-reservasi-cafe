@@ -694,78 +694,168 @@ body {
     margin: 15px 0;
 }
 
-.history-card {
-    border: 1px solid #eee;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    overflow: hidden;
+.title-page{
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 600;
 }
 
-.history-header {
+/* CARD */
+.order-card{
     display: flex;
     justify-content: space-between;
-    padding: 15px;
-    cursor: pointer;
-    background: #fafafa;
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    gap: 20px;
 }
 
-.history-detail {
-    display: none;
-    padding: 15px;
-    border-top: 1px solid #eee;
+/* LEFT */
+.order-left{
+    width: 35%;
 }
 
-.detail-item {
+.status-line{
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-/* STATUS */
-.status {
-    padding: 5px 10px;
+.dot{
+    width: 8px;
+    height: 8px;
+    background: green;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.status-text.pending{ color: orange; }
+.status-text.approved{ color: green; }
+.status-text.rejected{ color: red; }
+
+.order-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    font-size: 13px;
+    color: #555;
+}
+
+.order-total{
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* RIGHT */
+.order-right{
+    width: 65%;
+}
+
+/* MENU ITEM */
+.menu-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.menu-img{
+    width: 60px;
+    height: 60px;
     border-radius: 10px;
-    font-size: 12px;
+    object-fit: cover;
 }
 
-.status.pending {
-    background: #fff3cd;
-    color: #856404;
+.menu-detail{
+    flex: 1;
+    margin-left: 15px;
 }
 
-.status.approved {
-    background: #d4edda;
-    color: #155724;
+.menu-detail small{
+    display: block;
+    color: #777;
 }
 
-.status.rejected {
-    background: #f8d7da;
-    color: #721c24;
+.menu-price{
+    font-weight: 500;
 }
 
-/* BUKTI */
+/* ACTION */
+.order-action{
+    margin-top: 10px;
+    text-align: right;
+}
+
+.btn-delete{
+    background: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-delete:hover{
+    background: #d9363e;
+}
+
+select option:disabled {
+    color: #aaa;
+    background: #f5f5f5;
+}
+
+.order-wrapper {
+    margin-top: 40px;
+    max-width: 900px;
+    margin: 0 auto; /* 🔥 INI KUNCI AGAR KE TENGAH */
+    padding: 0 20px; /* biar gak nempel pinggir */
+}
+
+.title-page {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* LIST */
+.order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* CARD */
+.order-card {
+    display: flex;
+    gap: 20px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .order-card {
+        flex-direction: column;
+    }
+
+    .order-left,
+    .order-right {
+        width: 100%;
+    }
+}
+
 .bukti-box {
     margin-top: 10px;
 }
 
 .bukti-img {
-    width: 100%;
-    max-width: 200px;
+    width: 120px;
     border-radius: 10px;
     margin-top: 5px;
-}
-
-.btn-delete {
-    margin-top: 15px;
-    padding: 8px 12px;
-    border: none;
-    background: #ff4d4f;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 13px;
-}
-
-.btn-delete:hover {
-    background: #d9363e;
+    border: 1px solid #ddd;
 }

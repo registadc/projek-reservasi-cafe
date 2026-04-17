@@ -2,77 +2,84 @@
 
 @section('content')
 
-<div class="reservasi-container">
+<div class="order-wrapper" style="margin-top: 40px; margin-bottom: 40px;">
 
-<div class="card-reservasi">
+    <h2 class="title-page">Your Orders</h2>
 
-<h3>Riwayat Reservasi</h3>
-<hr>
+    <div class="order-list">
+        @foreach($data as $item)
+        <div class="order-card">
 
-@foreach($data as $item)
-<div class="history-card">
+            <!-- LEFT -->
+            <div class="order-left">
+                <div class="status-line">
+                    <span class="dot"></span>
+                    <span class="status-text {{ $item->status }}">
+                        {{ ucfirst($item->status) }}
+                    </span>
+                </div>
 
-    <!-- HEADER -->
-    <div class="history-header" onclick="toggleDetail({{ $item->id }})">
+                <div class="order-info">
+                    <div>
+                        <b>Tanggal</b><br>
+                        {{ $item->tanggal_reservasi }}
+                    </div>
+                    <div>
+                        <b>Jam</b><br>
+                        {{ $item->jam_reservasi }}
+                    </div>
+                    <div>
+                        <b>Meja</b><br>
+                        {{ $item->meja->nomor_meja ?? '-' }}
+                    </div>
+                    <div>
+                        <b>Pembayaran</b><br>
+                        {{ $item->metode_pembayaran }}
+                    </div>
+                </div>
 
-        <div>
-            <b>Rp {{ number_format($item->total_harga) }}</b><br>
-            <small>{{ $item->tanggal_reservasi }} - {{ $item->jam_reservasi }}</small>
-        </div>
+                <div class="order-total">
+                    Total: <b>Rp {{ number_format($item->total_harga) }}</b>
+                </div>
+            </div>
 
-        <!-- STATUS -->
-        <div>
-            @if($item->status == 'pending')
-                <span class="status pending">Pending</span>
-            @elseif($item->status == 'approved')
-                <span class="status approved">Approved</span>
-            @else
-                <span class="status rejected">Rejected</span>
-            @endif
-        </div>
+            <!-- RIGHT -->
+            <div class="order-right">
+                @foreach($item->detail_reservasi as $d)
+                <div class="menu-item">
+                    <img src="{{ asset('storage/'.$d->menu->gambar) }}" class="menu-img">
 
-    </div>
+                    <div class="menu-detail">
+                        {{ $d->menu->nama_menu }}
+                        <small>Qty: {{ $d->jumlah }}</small>
+                    </div>
 
-    <!-- DETAIL -->
-    <div class="history-detail" id="detail-{{ $item->id }}">
+                    <div class="menu-price">
+                        Rp {{ number_format($d->subtotal) }}
+                    </div>
+                </div>
+                @endforeach
 
-        @foreach($item->detail_reservasi as $d)
-        <div class="detail-item">
-            <span>{{ $d->menu->nama_menu }} x{{ $d->jumlah }}</span>
-            <span>Rp {{ number_format($d->subtotal) }}</span>
+                @if($item->bukti_pembayaran)
+                <div class="bukti-box">
+                    <p><b>Bukti Pembayaran:</b></p>
+                    <img src="{{ asset('storage/'.$item->bukti_pembayaran) }}" class="bukti-img">
+                </div>
+                @endif
+
+                <div class="order-action">
+                    <form action="{{ route('user.reservasi.delete', $item->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn-delete">Hapus</button>
+                    </form>
+                </div>
+            </div>
+
         </div>
         @endforeach
-
-        <P><b>Nomor Meja :</b> {{ $item->meja->nomor_meja ?? 'N/A' }}</P>
-
-        <form action="{{ route('user.reservasi.delete', $item->id) }}" method="POST" 
-            onsubmit="return confirm('Yakin mau hapus reservasi ini?')">
-            @csrf
-            @method('DELETE')
-
-            <button class="btn-delete">Hapus Reservasi</button>
-        </form>
-
-        @if($item->bukti_pembayaran)
-        <div class="bukti-box">
-            <p>Bukti Pembayaran:</p>
-            <img src="{{ asset('storage/'.$item->bukti_pembayaran) }}" class="bukti-img">
-        </div>
-        @endif
-
     </div>
 
-</div>
-@endforeach
-
-</div>
 </div>
 
 @endsection
-
-<script>
-function toggleDetail(id) {
-    const el = document.getElementById('detail-' + id);
-    el.style.display = el.style.display === 'block' ? 'none' : 'block';
-}
-</script>

@@ -2640,3 +2640,13 @@ a {
 .status-select option[value="rejected"] {
     color: red;
 }
+
+.table-btn.delete {
+    background: #ff4d4f;
+    color: white;
+    border: none;
+}
+
+.table-btn.delete:hover {
+    background: #d9363e;
+}

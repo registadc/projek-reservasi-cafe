@@ -60,4 +60,17 @@ class ReservasiController extends Controller
 
         return back()->with('success', 'Status berhasil diupdate');
     }
+
+    public function destroy($id)
+{
+    $reservasi = Reservasi::findOrFail($id);
+
+    // Hapus detail reservasi dulu (relasi)
+    $reservasi->detailReservasi()->delete();
+
+    // Baru hapus reservasi
+    $reservasi->delete();
+
+    return redirect()->back()->with('success', 'Reservasi berhasil dihapus');
+}
 }

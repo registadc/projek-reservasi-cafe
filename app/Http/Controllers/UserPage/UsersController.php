@@ -42,13 +42,17 @@ class UsersController extends Controller
         return view('user.profile', compact('user'));
     }
 
-    public function reservasiForm()
-    {
-         $mejas = Meja::where('status', 'tersedia')->get();
+  public function reservasiForm()
+{
+    $mejas = Meja::all();
 
-        return view('user.reservasi.step1', compact('mejas'));
+    // ambil meja yang sudah dipakai
+    $mejaTerpakai = Reservasi::whereIn('status', ['pending','approved'])
+        ->pluck('id_meja')
+        ->toArray();
 
-    }
+    return view('user.reservasi.step1', compact('mejas','mejaTerpakai'));
+}
 
     public function reservasiMenu(Request $request)
     {
@@ -117,6 +121,17 @@ public function reservasiStore(Request $request)
     if ($request->hasFile('bukti_pembayaran')) {
         $bukti = $request->file('bukti_pembayaran')->store('bukti', 'public');
     }
+
+        // CEK apakah meja sudah dipakai
+$cek = Reservasi::where('id_meja', $request->id_meja)
+    ->where('tanggal_reservasi', $request->tanggal_reservasi)
+    ->where('jam_reservasi', $request->jam_reservasi)
+    ->whereIn('status', ['pending', 'approved'])
+    ->exists();
+
+if ($cek) {
+    return back()->with('error', 'Meja sudah dibooking!');
+}
 
     $reservasi = Reservasi::create([
         'id_user' => auth()->id(),
