@@ -45,7 +45,7 @@ class ReservasiController extends Controller
         if ($request->status == 'approved') {
             if ($reservasi->meja) {
                 $reservasi->meja->update([
-                    'status' => 'tidak tersedia'
+                    'status' => 'terisi'
                 ]);
             }
         }

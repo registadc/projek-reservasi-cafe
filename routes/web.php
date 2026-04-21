@@ -68,7 +68,14 @@ Route::middleware(['auth', 'user'])->prefix('user')->group(function () {
     Route::get('/profile', [UsersController::class, 'profile'])
         ->name('user.profile');
 
-    //reservasi
+    Route::get('/profile/edit', [UsersController::class, 'editProfile'])
+    ->name('user.profile.edit');
+
+    Route::post('/profile/update', [UsersController::class, 'updateProfile'])
+    ->name('user.profile.update');
+
+
+//reservasi
 
 Route::get('/reservasi', [UsersController::class, 'reservasiForm'])->name('reservasi.form');
 

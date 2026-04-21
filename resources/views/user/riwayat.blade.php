@@ -4,7 +4,7 @@
 
 <div class="order-wrapper" style="margin-top: 40px; margin-bottom: 40px;">
 
-    <h2 class="title-page">Your Orders</h2>
+    <h2 class="title-page">Riwayat Reservasi</h2>
 
     <div class="order-list">
         @foreach($data as $item)

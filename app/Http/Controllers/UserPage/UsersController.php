@@ -212,5 +212,33 @@ if ($cek) {
 
         return back()->with('success', 'Reservasi berhasil dihapus');
     }
+
+    public function editProfile()
+    {
+        $user = Auth::user();
+        return view('user.edit-profile', compact('user'));
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $user = Auth::user();
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'password' => 'nullable|confirmed'
+        ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        if ($request->password) {
+            $user->password = bcrypt($request->password);
+        }
+
+        $user->save();
+
+        return redirect()->route('user.profile')->with('success', 'Profile berhasil diperbarui.');
+    }
     
 }

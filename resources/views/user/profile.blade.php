@@ -22,7 +22,9 @@
             <p>*******</p>
         </div>
 
-        <button class="btn-edit">Edit Profil</button>
+       <a href="{{ route('user.profile.edit') }}" class="btn-edit" 
+       style="text-decoration: none; font-size: 14px; width: 340px; text-align: center; display: inline-block; padding: 8px 12px; background-color: #d6b8c4; color: white; border-radius: 5px;">
+       Edit Profil</a>
     </div>
 
 </div>
